@@ -36,7 +36,7 @@ def load_to_stage(filefolder):
    
 
 connection = pymysql.connect(host='localhost', user='root', password='Oracle#987654')
-query = "SELECT distinct table_name FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'db_1' and table_type='BASE TABLE'   and table_name not in  ('sharepoint_updates_timestamps','audit','deal_rate_floors','forbury_calculator','ETL_CONTROL_T');"
+query = "SELECT distinct table_name FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'db_1' and table_type='BASE TABLE'   and table_name not in  ('sharepoint_updates_timestamps','audit','deal_rate_floors','forbury_calculator','ETL_CONTROL_T','REDEMPTIONS');"
 column_name = pd.read_sql(query, connection)
 cur = conn.cursor()
 for index, col in column_name.iterrows():
